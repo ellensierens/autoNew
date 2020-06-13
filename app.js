@@ -36,7 +36,7 @@ board.on("ready", function () {
     console.log("  longitude  : ", longitude);
     console.log("--------------------------------------");
 
-    socket.emit("coords", position.longitude, position.latitude);
+    socket.emit("coords", position);
   });
 
   // // If latitude, longitude change log it
