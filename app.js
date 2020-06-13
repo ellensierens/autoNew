@@ -4,7 +4,6 @@ var socket = require("socket.io-client")(
 const { Board, Servo, Motors, GPS } = require("johnny-five");
 let servo;
 let motors;
-let gps;
 const invertPWM = true;
 
 const scale = (num, in_min, in_max, out_min, out_max) => {
@@ -25,7 +24,7 @@ board.on("ready", function () {
     { pins: { dir: 12, pwm: 11 }, invertPWM },
   ]);
 
-  gps = new GPS({
+  const gps = new GPS({
     pins: {
       rx: 11,
       tx: 10,
