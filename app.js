@@ -32,8 +32,6 @@ board.on("ready", function () {
     },
   });
 
-  console.log("ready");
-
   gps.on("change", (position) => {
     const { altitude, latitude, longitude } = position;
     console.log("GPS Position:");
@@ -42,6 +40,8 @@ board.on("ready", function () {
     console.log("  altitude   : ", position.altitude);
     console.log("--------------------------------------");
   });
+
+  console.log("ready");
 });
 
 socket.on("stop", (data) => {
