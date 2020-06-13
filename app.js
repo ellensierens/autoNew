@@ -33,6 +33,15 @@ board.on("ready", function () {
   });
 
   console.log("ready");
+
+  gps.on("change", (position) => {
+    const { altitude, latitude, longitude } = position;
+    console.log("GPS Position:");
+    console.log("  latitude   : ", position.latitude);
+    console.log("  longitude  : ", position.longitude);
+    console.log("  altitude   : ", position.altitude);
+    console.log("--------------------------------------");
+  });
 });
 
 socket.on("stop", (data) => {
@@ -42,14 +51,6 @@ socket.on("stop", (data) => {
 });
 
 // If latitude, longitude change log it
-gps.on("change", (position) => {
-  const { altitude, latitude, longitude } = position;
-  console.log("GPS Position:");
-  console.log("  latitude   : ", position.latitude);
-  console.log("  longitude  : ", position.longitude);
-  console.log("  altitude   : ", position.altitude);
-  console.log("--------------------------------------");
-});
 
 socket.on("carControls", (data) => {
   // console.log(data);
