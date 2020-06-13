@@ -1,0 +1,5 @@
+.DS_Store
+db
+www/vendor
+
+node_modules/
