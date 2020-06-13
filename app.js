@@ -1,4 +1,6 @@
-var socket = require('socket.io-client')('https://evening-caverns-60077.herokuapp.com/');
+var socket = require("socket.io-client")(
+  "https://evening-caverns-60077.herokuapp.com/"
+);
 const { Board, Servo, Motors, GPS } = require("johnny-five");
 let servo;
 let motors;
@@ -8,7 +10,6 @@ const invertPWM = true;
 const scale = (num, in_min, in_max, out_min, out_max) => {
   return ((num - in_min) * (out_max - out_min)) / (in_max - in_min) + out_min;
 };
-
 
 const board = new Board({
   repl: false,
@@ -28,7 +29,7 @@ board.on("ready", function () {
     pins: {
       rx: 11,
       tx: 10,
-    }
+    },
   });
 
   console.log("ready");
@@ -38,6 +39,16 @@ socket.on("stop", (data) => {
   // console.log(data);
   motors.forward(0);
   servo.to(90);
+});
+
+// If latitude, longitude change log it
+gps.on("change", (position) => {
+  const { altitude, latitude, longitude } = position;
+  console.log("GPS Position:");
+  console.log("  latitude   : ", position.latitude);
+  console.log("  longitude  : ", position.longitude);
+  console.log("  altitude   : ", position.altitude);
+  console.log("--------------------------------------");
 });
 
 socket.on("carControls", (data) => {
