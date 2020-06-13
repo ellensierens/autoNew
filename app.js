@@ -15,7 +15,7 @@ const board = new Board({
 });
 
 board.on("ready", function () {
-  servo = new Servo(7);
+  servo = new Servo(2);
   // led.strobe(1000); // on off every second
   // servo.to(90);
 
