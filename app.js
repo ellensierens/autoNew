@@ -24,15 +24,16 @@ board.on("ready", function () {
     { pins: { dir: 12, pwm: 11 }, invertPWM },
   ]);
 
-  const gps = new GPS({
+  var gps = new GPS({
     pins: {
       rx: 11,
       tx: 10,
-    },
+    }
   });
 
-  gps.on("change", (position) => {
-    const { altitude, latitude, longitude } = position;
+  // If latitude, longitude change log it
+   gps.on("change", position => {
+    const {altitude, latitude, longitude} = position;
     console.log("GPS Position:");
     console.log("  latitude   : ", position.latitude);
     console.log("  longitude  : ", position.longitude);
