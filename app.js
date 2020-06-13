@@ -41,8 +41,8 @@ board.on("ready", function () {
   //   console.log("  altitude   : ", position.altitude);
   //   console.log("--------------------------------------");
   // });
-  console.log(gps.position.latitude);
-  
+  console.log(gps.latitude);
+
   console.log("ready");
 });
 
