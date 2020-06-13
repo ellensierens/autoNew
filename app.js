@@ -4,7 +4,7 @@ var socket = require("socket.io-client")(
 const { Board, Servo, Motors, GPS } = require("johnny-five");
 let servo;
 let motors;
-// let gps;
+let gps;
 const invertPWM = true;
 
 const scale = (num, in_min, in_max, out_min, out_max) => {
