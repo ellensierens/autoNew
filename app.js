@@ -29,7 +29,7 @@ board.on("ready", function () {
   });
 
   // If latitude, longitude, course or speed change log it
-  gps.on("change", position => {
+  gps.on("operations", position => {
     const {latitude, longitude} = position;
     console.log("GPS Position:");
     console.log("  latitude   : ", latitude);
