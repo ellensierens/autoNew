@@ -37,10 +37,11 @@ board.on("ready", function () {
     console.log("  longitude  : ", longitude);
     console.log("--------------------------------------");
 
-    if(position !== sendCoords) {
-      socket.emit("coords", position);
-      sendCoords = position;
-    }
+    // if(Math.round(position) !== Math.round(sendCoords)) {
+    //   socket.emit("coords", position);
+    //   sendCoords = position;
+    // }
+    socket.emit("coords", position);
   });
 
   // // If latitude, longitude change log it
