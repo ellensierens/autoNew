@@ -4,6 +4,7 @@ var socket = require("socket.io-client")(
 const { Board, Servo, Motors, GPS } = require("johnny-five");
 let servo;
 let motors;
+let positionSet;
 const invertPWM = true;
 
 const scale = (num, in_min, in_max, out_min, out_max) => {
@@ -35,9 +36,11 @@ board.on("ready", function () {
     console.log("  latitude   : ", latitude);
     console.log("  longitude  : ", longitude);
     console.log("--------------------------------------");
-
-    socket.emit("coords", position);
+    
+    positionSet = position;
   });
+
+  socket.emit("coords", positionSet);
 
   // // If latitude, longitude change log it
   //  gps.on("change", position => {
