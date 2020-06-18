@@ -19,8 +19,8 @@ board.on("ready", function () {
   // led.strobe(1000); // on off every second
   servo.to(90);
 
-  servoCamera = new Servo(9)
-  servoCamera.to(90)
+  servoCamera = new Servo(9);
+  servoCamera.to(90);
 
   motors = new Motors([
     { pins: { dir: 5, pwm: 6 }, invertPWM },
@@ -28,12 +28,12 @@ board.on("ready", function () {
   ]);
 
   const gps = new GPS({
-    port: board.io.SERIAL_PORT_IDs.HW_SERIAL1
+    port: board.io.SERIAL_PORT_IDs.HW_SERIAL1,
   });
 
   // If latitude, longitude, course or speed change log it
-  gps.on("change", position => {
-    const {latitude, longitude} = position;
+  gps.on("change", (position) => {
+    const { latitude, longitude } = position;
     console.log("GPS Position:");
     console.log("  latitude   : ", latitude);
     console.log("  longitude  : ", longitude);
@@ -62,12 +62,13 @@ socket.on("stop", (data) => {
   servo.to(90);
 });
 
-// If latitude, longitude change log it
-
 socket.on("cameraControls", (data) => {
-  console.log("camera controls")
-  console.log(data)
-})
+  console.log("camera controls");
+  console.log(data);
+
+  const scaledCamera = scale(data.x, -50, 50, 0, 180);
+  servo.to(scaledCamera);
+});
 
 socket.on("carControls", (data) => {
   // console.log(data);
