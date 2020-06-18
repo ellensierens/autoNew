@@ -5,6 +5,7 @@ const { Board, Servo, Motors, GPS } = require("johnny-five");
 let servo;
 let motors;
 const invertPWM = true;
+const delay = 100;
 
 const scale = (num, in_min, in_max, out_min, out_max) => {
   return ((num - in_min) * (out_max - out_min)) / (in_max - in_min) + out_min;
@@ -66,15 +67,26 @@ socket.on("cameraControls", (data) => {
   // console.log("camera controls");
   // console.log(data);
 
-  const scaledCamera = scale(data.x, -50, 50, 140, 40);
+  // const scaledCamera = scale(data.x, -50, 50, 140, 40);
 
   // console.log(servoCamera.position);
-  console.log(scaledCamera);
-  console.log(servoCamera.position - scaledCamera);
-  const moved = servoCamera.position - scaledCamera;
+  // console.log(scaledCamera);
+  // console.log(servoCamera.position - scaledCamera);
+  // const moved = servoCamera.position - scaledCamera;
+  if (0 < data.x < 10) {
+    servoCamera.to(servoCamera.position + 1, delay);
+  } else if (11 < data.x < 20) {
+    servoCamera.to(servoCamera.position + 2, delay);
+  } else if (21 < data.x < 30) {
+    servoCamera.to(servoCamera.position + 3, delay);
+  } else if (31 < data.x < 40) {
+    servoCamera.to(servoCamera.position + 4, delay);
+  } else if (41 < data.x < 50) {
+    servoCamera.to(servoCamera.position + 5, delay);
+  }
 
   // servoCamera.to(scaledCamera, Math.abs(moved), Math.abs(moved));
-  servoCamera.to(scaledCamera, 500);
+  // servoCamera.to(scaledCamera, 500);
 
   // if(moved > 0) {
   //   for(i = 0; i< Math.round(moved); i++ ) {
