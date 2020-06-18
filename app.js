@@ -75,25 +75,36 @@ socket.on("cameraControls", (data) => {
   // const moved = servoCamera.position - scaledCamera;
   if (0 < currentPosition < 180) {
     if (0 < data.x < 10) {
-      currentPosition ++;
+      console.log(`+1`);
+
+      currentPosition++;
     } else if (11 < data.x < 20) {
-      currentPosition +=2;
+      console.log(`+2`);
+      currentPosition += 2;
     } else if (21 < data.x < 30) {
-      currentPosition +=3;
+      console.log(`+3`);
+      currentPosition += 3;
     } else if (31 < data.x < 40) {
-      currentPosition +=4;
+      console.log(`+4`);
+      currentPosition += 4;
     } else if (41 < data.x < 50) {
-      currentPosition +=5;
+      console.log(`+5`);
+      currentPosition += 5;
     } else if (0 > data.x > -10) {
+      console.log(`-1`);
       currentPosition -= 1;
     } else if (-11 > data.x > -20) {
-      currentPosition -=2;
+      console.log(`-2`);
+      currentPosition -= 2;
     } else if (-21 > data.x > -30) {
-      currentPosition -=3;
+      console.log(`-3`);
+      currentPosition -= 3;
     } else if (-31 > data.x > -40) {
-      currentPosition -=4;
+      console.log(`-4`);
+      currentPosition -= 4;
     } else if (-41 > data.x > -50) {
-      currentPosition -=5;
+      console.log(`-5`);
+      currentPosition -= 5;
     }
   }
 
