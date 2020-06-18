@@ -6,6 +6,7 @@ let servo;
 let motors;
 const invertPWM = true;
 let currentPosition = 90;
+let step = 0.5;
 
 const scale = (num, in_min, in_max, out_min, out_max) => {
   return ((num - in_min) * (out_max - out_min)) / (in_max - in_min) + out_min;
@@ -74,37 +75,37 @@ socket.on("cameraControls", (data) => {
   // console.log(servoCamera.position - scaledCamera);
   // const moved = servoCamera.position - scaledCamera;
   if (0 < currentPosition < 180) {
-    if ( parseFloat(data.x) < 10 &&  parseFloat(data.x) > 0) {
+    if (parseFloat(data.x) < 10 && parseFloat(data.x) > 0) {
       console.log(`+1`);
 
-      currentPosition++;
+      currentPosition += step;
     } else if (parseFloat(data.x) < 20 && parseFloat(data.x) > 11) {
       console.log(`+2`);
-      currentPosition += 2;
+      currentPosition += step * 2;
     } else if (parseFloat(data.x) < 30 && parseFloat(data.x) > 21) {
       console.log(`+3`);
-      currentPosition += 3;
+      currentPosition += step * 3;
     } else if (parseFloat(data.x) < 40 && parseFloat(data.x) > 31) {
       console.log(`+4`);
-      currentPosition += 4;
+      currentPosition += step * 4;
     } else if (parseFloat(data.x) < 50 && parseFloat(data.x) > 41) {
       console.log(`+5`);
-      currentPosition += 5;
+      currentPosition += step * 5;
     } else if (parseFloat(data.x) > -10 && parseFloat(data.x) < 0) {
       console.log(`-1`);
-      currentPosition -= 1;
+      currentPosition -= step * 1;
     } else if (parseFloat(data.x) > -20 && parseFloat(data.x) < -11) {
       console.log(`-2`);
-      currentPosition -= 2;
+      currentPosition -= step * 2;
     } else if (parseFloat(data.x) > -30 && parseFloat(data.x) < -21) {
       console.log(`-3`);
-      currentPosition -= 3;
+      currentPosition -= step * 3;
     } else if (parseFloat(data.x) > -40 && parseFloat(data.x) < -31) {
       console.log(`-4`);
-      currentPosition -= 4;
+      currentPosition -= step * 4;
     } else if (parseFloat(data.x) > -50 && parseFloat(data.x) < -41) {
       console.log(`-5`);
-      currentPosition -= 5;
+      currentPosition -= step * 5;
     }
   }
 
