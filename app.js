@@ -70,7 +70,7 @@ socket.on("cameraControls", (data) => {
   // servoCamera.to(scaledCamera, 500);
   console.log(servo.position);
   console.log(scaledCamera);
-  console.log(position - scaledCamera);
+  console.log(servo.position - scaledCamera);
 });
 
 socket.on("carControls", (data) => {
