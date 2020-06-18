@@ -64,6 +64,11 @@ socket.on("stop", (data) => {
 
 // If latitude, longitude change log it
 
+socket.on("cameraControls", (data) => {
+  console.log("camera controls")
+  console.log(data)
+})
+
 socket.on("carControls", (data) => {
   // console.log(data);
 
