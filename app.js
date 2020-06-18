@@ -78,31 +78,31 @@ socket.on("cameraControls", (data) => {
       console.log(`+1`);
 
       currentPosition++;
-    } else if (11 < parseFloat(data.x) < 20) {
+    } else if (parseFloat(data.x) < 20 && parseFloat(data.x) > 11) {
       console.log(`+2`);
       currentPosition += 2;
-    } else if (21 < parseFloat(data.x) < 30) {
+    } else if (parseFloat(data.x) < 30 && parseFloat(data.x) > 21) {
       console.log(`+3`);
       currentPosition += 3;
-    } else if (31 < parseFloat(data.x) < 40) {
+    } else if (parseFloat(data.x) < 40 && parseFloat(data.x) > 31) {
       console.log(`+4`);
       currentPosition += 4;
-    } else if (41 < parseFloat(data.x) < 50) {
+    } else if (parseFloat(data.x) < 50 && parseFloat(data.x) > 41) {
       console.log(`+5`);
       currentPosition += 5;
-    } else if (0 > parseFloat(data.x) > -10) {
+    } else if (parseFloat(data.x) > -10 && parseFloat(data.x) < 0) {
       console.log(`-1`);
       currentPosition -= 1;
-    } else if (-11 > parseFloat(data.x) > -20) {
+    } else if (parseFloat(data.x) > -20 && parseFloat(data.x) < -11) {
       console.log(`-2`);
       currentPosition -= 2;
-    } else if (-21 > parseFloat(data.x) > -30) {
+    } else if (parseFloat(data.x) > -30 && parseFloat(data.x) < -21) {
       console.log(`-3`);
       currentPosition -= 3;
-    } else if (-31 > parseFloat(data.x) > -40) {
+    } else if (parseFloat(data.x) > -40 && parseFloat(data.x) < -31) {
       console.log(`-4`);
       currentPosition -= 4;
-    } else if (-41 > parseFloat(data.x) > -50) {
+    } else if (parseFloat(data.x) > -50 && parseFloat(data.x) < -41) {
       console.log(`-5`);
       currentPosition -= 5;
     }
