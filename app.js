@@ -73,7 +73,7 @@ socket.on("cameraControls", (data) => {
   console.log(servoCamera.position - scaledCamera);
   const moved = servoCamera.position - scaledCamera;
 
-  servoCamera.to(scaledCamera, moved*100, moved);
+  servoCamera.to(scaledCamera, Math.abs(moved), Math.abs(moved));
 
   // if(moved > 0) {
   //   for(i = 0; i< Math.round(moved); i++ ) {
