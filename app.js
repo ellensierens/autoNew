@@ -63,15 +63,15 @@ socket.on("stop", (data) => {
 });
 
 socket.on("cameraControls", (data) => {
-  console.log("camera controls");
-  console.log(data);
+  // console.log("camera controls");
+  // console.log(data);
 
   const scaledCamera = scale(data.x, -50, 50, 140, 40);
   // servoCamera.to(scaledCamera, 500);
   // console.log(servoCamera.position);
   console.log(scaledCamera);
-  // console.log(servoCamera.position - scaledCamera);
-  // const moved = servoCamera.position - scaledCamera
+  console.log(servoCamera.position - scaledCamera);
+  const moved = servoCamera.position - scaledCamera
 
   // for(i = servoCamera.position; i> Math.round(moved); i++ ) {
   //   servoCamera.to(i);
