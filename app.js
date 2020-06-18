@@ -73,26 +73,28 @@ socket.on("cameraControls", (data) => {
   // console.log(scaledCamera);
   // console.log(servoCamera.position - scaledCamera);
   // const moved = servoCamera.position - scaledCamera;
-  if (0 < data.x < 10) {
-    servoCamera.to(servoCamera.position + 1);
-  } else if (11 < data.x < 20) {
-    servoCamera.to(servoCamera.position + 2);
-  } else if (21 < data.x < 30) {
-    servoCamera.to(servoCamera.position + 3);
-  } else if (31 < data.x < 40) {
-    servoCamera.to(servoCamera.position + 4);
-  } else if (41 < data.x < 50) {
-    servoCamera.to(servoCamera.position + 5);
-  } else if (0 > data.x > -10) {
-    servoCamera.to(servoCamera.position - 1);
-  } else if (-11 > data.x > -20) {
-    servoCamera.to(servoCamera.position - 2);
-  } else if (-21 > data.x > -30) {
-    servoCamera.to(servoCamera.position - 3);
-  } else if (-31 > data.x > -40) {
-    servoCamera.to(servoCamera.position - 4);
-  } else if (-41 > data.x > -50) {
-    servoCamera.to(servoCamera.position - 5);
+  if (0 < servoCamera.position < 180) {
+    if (0 < data.x < 10) {
+      servoCamera.to(servoCamera.position + 1);
+    } else if (11 < data.x < 20) {
+      servoCamera.to(servoCamera.position + 2);
+    } else if (21 < data.x < 30) {
+      servoCamera.to(servoCamera.position + 3);
+    } else if (31 < data.x < 40) {
+      servoCamera.to(servoCamera.position + 4);
+    } else if (41 < data.x < 50) {
+      servoCamera.to(servoCamera.position + 5);
+    } else if (0 > data.x > -10) {
+      servoCamera.to(servoCamera.position - 1);
+    } else if (-11 > data.x > -20) {
+      servoCamera.to(servoCamera.position - 2);
+    } else if (-21 > data.x > -30) {
+      servoCamera.to(servoCamera.position - 3);
+    } else if (-31 > data.x > -40) {
+      servoCamera.to(servoCamera.position - 4);
+    } else if (-41 > data.x > -50) {
+      servoCamera.to(servoCamera.position - 5);
+    }
   }
 
   // servoCamera.to(scaledCamera, Math.abs(moved), Math.abs(moved));
