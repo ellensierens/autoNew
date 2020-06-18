@@ -74,35 +74,35 @@ socket.on("cameraControls", (data) => {
   // console.log(servoCamera.position - scaledCamera);
   // const moved = servoCamera.position - scaledCamera;
   if (0 < currentPosition < 180) {
-    if (0 < data.x < 10) {
+    if ( parseFloat(data.x) < 10 &&  parseFloat(data.x)) {
       console.log(`+1`);
 
       currentPosition++;
-    } else if (11 < data.x < 20) {
+    } else if (11 < parseFloat(data.x) < 20) {
       console.log(`+2`);
       currentPosition += 2;
-    } else if (21 < data.x < 30) {
+    } else if (21 < parseFloat(data.x) < 30) {
       console.log(`+3`);
       currentPosition += 3;
-    } else if (31 < data.x < 40) {
+    } else if (31 < parseFloat(data.x) < 40) {
       console.log(`+4`);
       currentPosition += 4;
-    } else if (41 < data.x < 50) {
+    } else if (41 < parseFloat(data.x) < 50) {
       console.log(`+5`);
       currentPosition += 5;
-    } else if (0 > data.x > -10) {
+    } else if (0 > parseFloat(data.x) > -10) {
       console.log(`-1`);
       currentPosition -= 1;
-    } else if (-11 > data.x > -20) {
+    } else if (-11 > parseFloat(data.x) > -20) {
       console.log(`-2`);
       currentPosition -= 2;
-    } else if (-21 > data.x > -30) {
+    } else if (-21 > parseFloat(data.x) > -30) {
       console.log(`-3`);
       currentPosition -= 3;
-    } else if (-31 > data.x > -40) {
+    } else if (-31 > parseFloat(data.x) > -40) {
       console.log(`-4`);
       currentPosition -= 4;
-    } else if (-41 > data.x > -50) {
+    } else if (-41 > parseFloat(data.x) > -50) {
       console.log(`-5`);
       currentPosition -= 5;
     }
