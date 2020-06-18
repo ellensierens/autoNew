@@ -74,7 +74,7 @@ socket.on("cameraControls", (data) => {
   // console.log(servoCamera.position - scaledCamera);
   // const moved = servoCamera.position - scaledCamera;
   if (0 < currentPosition < 180) {
-    if ( parseFloat(data.x) < 10 &&  parseFloat(data.x)) {
+    if ( parseFloat(data.x) < 10 &&  parseFloat(data.x) > 0) {
       console.log(`+1`);
 
       currentPosition++;
@@ -106,6 +106,14 @@ socket.on("cameraControls", (data) => {
       console.log(`-5`);
       currentPosition -= 5;
     }
+  }
+
+  if (currentPosition > 180) {
+    currentPosition = 180;
+  }
+
+  if (currentPosition < 0) {
+    currentPosition = 0;
   }
 
   servoCamera.to(currentPosition);
