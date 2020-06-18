@@ -67,19 +67,19 @@ socket.on("cameraControls", (data) => {
   // console.log(data);
 
   const scaledCamera = scale(data.x, -50, 50, 140, 40);
-  // servoCamera.to(scaledCamera, 500);
+
   // console.log(servoCamera.position);
   console.log(scaledCamera);
   console.log(servoCamera.position - scaledCamera);
-  const moved = servoCamera.position - scaledCamera
+  const moved = servoCamera.position - scaledCamera;
 
-  if(moved > 0) {
-    for(i = 0; i< Math.round(moved); i++ ) {
-      servoCamera.to(servoCamera.position + 1);
-    }
-  }
+  servoCamera.to(scaledCamera, moved*100, moved);
 
-
+  // if(moved > 0) {
+  //   for(i = 0; i< Math.round(moved); i++ ) {
+  //     servoCamera.to(servoCamera.position + 1);
+  //   }
+  // }
 });
 
 socket.on("carControls", (data) => {
