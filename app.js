@@ -67,7 +67,7 @@ socket.on("cameraControls", (data) => {
   console.log(data);
 
   const scaledCamera = scale(data.x, -50, 50, 0, 180);
-  servo.to(scaledCamera);
+  servoCamera.to(scaledCamera);
 });
 
 socket.on("carControls", (data) => {
