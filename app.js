@@ -17,7 +17,10 @@ const board = new Board({
 board.on("ready", function () {
   servo = new Servo(3);
   // led.strobe(1000); // on off every second
-  // servo.to(90);
+  servo.to(90);
+
+  servoCamera = new Servo(9)
+  servoCamera.to(90)
 
   motors = new Motors([
     { pins: { dir: 5, pwm: 6 }, invertPWM },
