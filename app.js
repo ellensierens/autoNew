@@ -65,7 +65,7 @@ socket.on("stop", (data) => {
 
 socket.on("cameraControls", (data) => {
   // console.log("camera controls");
-  // console.log(data);
+  console.log(data);
 
   // const scaledCamera = scale(data.x, -50, 50, 140, 40);
 
