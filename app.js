@@ -154,8 +154,11 @@ socket.on("cameraControls", (data) => {
     } else if (parseFloat(data.x) > -50 && parseFloat(data.x) < -41) {
       console.log(`-5`);
       currentPosition -= step * 5;
-      console.log(`in interval`);
-      servoCamera.to(currentPosition);
+      interval = setInterval(() => {
+        currentPosition -= step * 5;
+        console.log(`in interval`);
+        servoCamera.to(currentPosition);
+      }, intervalDelay);
     }
   }
 
