@@ -200,7 +200,7 @@ socket.on("carControls", (data) => {
   }
 
   if (data.y < 0) {
-    if (data.x < -25) {
+    if (data.y < -25) {
       motors.forward(255);
     } else {
       // console.log(`value: ${data.y}`);
@@ -211,7 +211,7 @@ socket.on("carControls", (data) => {
   }
 
   if (data.y > 0) {
-    if (data.x > 25) {
+    if (data.y > 25) {
       motors.reverse(255);
     } else {
       // console.log(`value: ${data.y}`);
