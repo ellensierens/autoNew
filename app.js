@@ -81,81 +81,81 @@ socket.on("cameraControls", (data) => {
   if (between(currentPosition, 0, 180)) {
     if (between(parseFloat(data.x), 0, 10)) {
       console.log(`+1`);
-      currentPosition += step;
-      interval = setInterval(() => {
-        currentPosition += step;
-        console.log(`in interval`);
-        servoCamera.to(currentPosition);
-      }, intervalDelay);
-    } else if (between(parseFloat(data.x), 11, 20)) {
-      console.log(`+2`);
-      currentPosition += step * 2;
-      interval = setInterval(() => {
-        currentPosition += step * 2;
-        console.log(`in interval`);
-        servoCamera.to(currentPosition);
-      }, intervalDelay);
-    } else if (between(parseFloat(data.x), 21, 30)) {
-      console.log(`+3`);
-      currentPosition += step * 3;
-      interval = setInterval(() => {
-        currentPosition += step * 3;
-        console.log(`in interval`);
-        servoCamera.to(currentPosition);
-      }, intervalDelay);
-    } else if (between(parseFloat(data.x), 31, 40)) {
-      console.log(`+4`);
-      currentPosition += step * 4;
-      interval = setInterval(() => {
-        currentPosition += step * 4;
-        console.log(`in interval`);
-        servoCamera.to(currentPosition);
-      }, intervalDelay);
-    } else if (between(parseFloat(data.x), 41, 50)) {
-      console.log(`+5`);
-      currentPosition += step * 5;
-      interval = setInterval(() => {
-        currentPosition += step * 5;
-        console.log(`in interval`);
-        servoCamera.to(currentPosition);
-      }, intervalDelay);
-    } else if (between(parseFloat(data.x), -10, 0)) {
-      console.log(`-1`);
-      currentPosition -= step * 1;
+      currentPosition -= step;
       interval = setInterval(() => {
         currentPosition -= step;
         console.log(`in interval`);
         servoCamera.to(currentPosition);
       }, intervalDelay);
-    } else if (between(parseFloat(data.x), -20, -11)) {
-      console.log(`-2`);
+    } else if (between(parseFloat(data.x), 11, 20)) {
+      console.log(`+2`);
       currentPosition -= step * 2;
       interval = setInterval(() => {
         currentPosition -= step * 2;
         console.log(`in interval`);
         servoCamera.to(currentPosition);
       }, intervalDelay);
-    } else if (between(parseFloat(data.x), -30, -21)) {
-      console.log(`-3`);
+    } else if (between(parseFloat(data.x), 21, 30)) {
+      console.log(`+3`);
       currentPosition -= step * 3;
       interval = setInterval(() => {
         currentPosition -= step * 3;
         console.log(`in interval`);
         servoCamera.to(currentPosition);
       }, intervalDelay);
-    } else if (between(parseFloat(data.x), -40, -31)) {
-      console.log(`-4`);
+    } else if (between(parseFloat(data.x), 31, 40)) {
+      console.log(`+4`);
       currentPosition -= step * 4;
       interval = setInterval(() => {
         currentPosition -= step * 4;
         console.log(`in interval`);
         servoCamera.to(currentPosition);
       }, intervalDelay);
-    } else if (between(parseFloat(data.x), -50, -41)) {
-      console.log(`-5`);
+    } else if (between(parseFloat(data.x), 41, 50)) {
+      console.log(`+5`);
       currentPosition -= step * 5;
       interval = setInterval(() => {
         currentPosition -= step * 5;
+        console.log(`in interval`);
+        servoCamera.to(currentPosition);
+      }, intervalDelay);
+    } else if (between(parseFloat(data.x), -10, 0)) {
+      console.log(`-1`);
+      currentPosition += step * 1;
+      interval = setInterval(() => {
+        currentPosition += step;
+        console.log(`in interval`);
+        servoCamera.to(currentPosition);
+      }, intervalDelay);
+    } else if (between(parseFloat(data.x), -20, -11)) {
+      console.log(`-2`);
+      currentPosition += step * 2;
+      interval = setInterval(() => {
+        currentPosition += step * 2;
+        console.log(`in interval`);
+        servoCamera.to(currentPosition);
+      }, intervalDelay);
+    } else if (between(parseFloat(data.x), -30, -21)) {
+      console.log(`-3`);
+      currentPosition += step * 3;
+      interval = setInterval(() => {
+        currentPosition += step * 3;
+        console.log(`in interval`);
+        servoCamera.to(currentPosition);
+      }, intervalDelay);
+    } else if (between(parseFloat(data.x), -40, -31)) {
+      console.log(`-4`);
+      currentPosition += step * 4;
+      interval = setInterval(() => {
+        currentPosition += step * 4;
+        console.log(`in interval`);
+        servoCamera.to(currentPosition);
+      }, intervalDelay);
+    } else if (between(parseFloat(data.x), -50, -41)) {
+      console.log(`-5`);
+      currentPosition += step * 5;
+      interval = setInterval(() => {
+        currentPosition += step * 5;
         console.log(`in interval`);
         servoCamera.to(currentPosition);
       }, intervalDelay);
