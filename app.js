@@ -78,8 +78,8 @@ socket.on("cameraControls", (data) => {
   // console.log(scaledCamera);
   // console.log(servoCamera.position - scaledCamera);
   // const moved = servoCamera.position - scaledCamera;
-  if (0 < currentPosition < 180) {
-    if (parseFloat(data.x) < 10 && parseFloat(data.x) > 0) {
+  if (between(currentPosition, 0, 180)) {
+    if (between(parseFloat(data.x), 0, 10)) {
       console.log(`+1`);
       currentPosition += step;
       interval = setInterval(() => {
@@ -87,7 +87,7 @@ socket.on("cameraControls", (data) => {
         console.log(`in interval`);
         servoCamera.to(currentPosition);
       }, intervalDelay);
-    } else if (parseFloat(data.x) < 20 && parseFloat(data.x) > 11) {
+    } else if (between(parseFloat(data.x), 11, 20)) {
       console.log(`+2`);
       currentPosition += step * 2;
       interval = setInterval(() => {
@@ -95,7 +95,7 @@ socket.on("cameraControls", (data) => {
         console.log(`in interval`);
         servoCamera.to(currentPosition);
       }, intervalDelay);
-    } else if (parseFloat(data.x) < 30 && parseFloat(data.x) > 21) {
+    } else if (between(parseFloat(data.x), 21, 30)) {
       console.log(`+3`);
       currentPosition += step * 3;
       interval = setInterval(() => {
@@ -103,7 +103,7 @@ socket.on("cameraControls", (data) => {
         console.log(`in interval`);
         servoCamera.to(currentPosition);
       }, intervalDelay);
-    } else if (parseFloat(data.x) < 40 && parseFloat(data.x) > 31) {
+    } else if (between(parseFloat(data.x), 31, 40)) {
       console.log(`+4`);
       currentPosition += step * 4;
       interval = setInterval(() => {
@@ -111,7 +111,7 @@ socket.on("cameraControls", (data) => {
         console.log(`in interval`);
         servoCamera.to(currentPosition);
       }, intervalDelay);
-    } else if (parseFloat(data.x) < 50 && parseFloat(data.x) > 41) {
+    } else if (between(parseFloat(data.x), 41, 50)) {
       console.log(`+5`);
       currentPosition += step * 5;
       interval = setInterval(() => {
@@ -119,7 +119,7 @@ socket.on("cameraControls", (data) => {
         console.log(`in interval`);
         servoCamera.to(currentPosition);
       }, intervalDelay);
-    } else if (parseFloat(data.x) > -10 && parseFloat(data.x) < 0) {
+    } else if (between(parseFloat(data.x), -10, 0)) {
       console.log(`-1`);
       currentPosition -= step * 1;
       interval = setInterval(() => {
@@ -127,7 +127,7 @@ socket.on("cameraControls", (data) => {
         console.log(`in interval`);
         servoCamera.to(currentPosition);
       }, intervalDelay);
-    } else if (parseFloat(data.x) > -20 && parseFloat(data.x) < -11) {
+    } else if (between(parseFloat(data.x), -20, -11)) {
       console.log(`-2`);
       currentPosition -= step * 2;
       interval = setInterval(() => {
@@ -135,7 +135,7 @@ socket.on("cameraControls", (data) => {
         console.log(`in interval`);
         servoCamera.to(currentPosition);
       }, intervalDelay);
-    } else if (parseFloat(data.x) > -30 && parseFloat(data.x) < -21) {
+    } else if (between(parseFloat(data.x), -30, -21)) {
       console.log(`-3`);
       currentPosition -= step * 3;
       interval = setInterval(() => {
@@ -143,7 +143,7 @@ socket.on("cameraControls", (data) => {
         console.log(`in interval`);
         servoCamera.to(currentPosition);
       }, intervalDelay);
-    } else if (parseFloat(data.x) > -40 && parseFloat(data.x) < -31) {
+    } else if (between(parseFloat(data.x), -40, -31)) {
       console.log(`-4`);
       currentPosition -= step * 4;
       interval = setInterval(() => {
@@ -151,7 +151,7 @@ socket.on("cameraControls", (data) => {
         console.log(`in interval`);
         servoCamera.to(currentPosition);
       }, intervalDelay);
-    } else if (parseFloat(data.x) > -50 && parseFloat(data.x) < -41) {
+    } else if (between(parseFloat(data.x), -50, -41)) {
       console.log(`-5`);
       currentPosition -= step * 5;
       interval = setInterval(() => {
@@ -181,6 +181,10 @@ socket.on("cameraControls", (data) => {
   //   }
   // }
 });
+
+const between = (x, min, max) => {
+  return x >= min && x <= max;
+};
 
 socket.on("carControls", (data) => {
   // console.log(data);
