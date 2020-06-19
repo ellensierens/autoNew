@@ -61,14 +61,14 @@ board.on("ready", function () {
 });
 
 socket.on("stop", (data) => {
-  clearInterval(interval)
+  clearInterval(interval);
   // console.log(data);
   motors.forward(0);
   servo.to(90);
 });
 
 socket.on("cameraControls", (data) => {
-  clearInterval(interval)
+  clearInterval(interval);
   // console.log("camera controls");
   console.log(data);
 
@@ -85,6 +85,7 @@ socket.on("cameraControls", (data) => {
       interval = setInterval(() => {
         currentPosition += step;
         console.log(`in interval`);
+        servoCamera.to(currentPosition);
       }, intervalDelay);
     } else if (parseFloat(data.x) < 20 && parseFloat(data.x) > 11) {
       console.log(`+2`);
@@ -92,6 +93,7 @@ socket.on("cameraControls", (data) => {
       interval = setInterval(() => {
         currentPosition += step * 2;
         console.log(`in interval`);
+        servoCamera.to(currentPosition);
       }, intervalDelay);
     } else if (parseFloat(data.x) < 30 && parseFloat(data.x) > 21) {
       console.log(`+3`);
@@ -99,6 +101,7 @@ socket.on("cameraControls", (data) => {
       interval = setInterval(() => {
         currentPosition += step * 3;
         console.log(`in interval`);
+        servoCamera.to(currentPosition);
       }, intervalDelay);
     } else if (parseFloat(data.x) < 40 && parseFloat(data.x) > 31) {
       console.log(`+4`);
@@ -106,6 +109,7 @@ socket.on("cameraControls", (data) => {
       interval = setInterval(() => {
         currentPosition += step * 4;
         console.log(`in interval`);
+        servoCamera.to(currentPosition);
       }, intervalDelay);
     } else if (parseFloat(data.x) < 50 && parseFloat(data.x) > 41) {
       console.log(`+5`);
@@ -113,6 +117,7 @@ socket.on("cameraControls", (data) => {
       interval = setInterval(() => {
         currentPosition += step * 5;
         console.log(`in interval`);
+        servoCamera.to(currentPosition);
       }, intervalDelay);
     } else if (parseFloat(data.x) > -10 && parseFloat(data.x) < 0) {
       console.log(`-1`);
@@ -120,6 +125,7 @@ socket.on("cameraControls", (data) => {
       interval = setInterval(() => {
         currentPosition += step;
         console.log(`in interval`);
+        servoCamera.to(currentPosition);
       }, intervalDelay);
     } else if (parseFloat(data.x) > -20 && parseFloat(data.x) < -11) {
       console.log(`-2`);
@@ -127,6 +133,7 @@ socket.on("cameraControls", (data) => {
       interval = setInterval(() => {
         currentPosition += step * 2;
         console.log(`in interval`);
+        servoCamera.to(currentPosition);
       }, intervalDelay);
     } else if (parseFloat(data.x) > -30 && parseFloat(data.x) < -21) {
       console.log(`-3`);
@@ -134,6 +141,7 @@ socket.on("cameraControls", (data) => {
       interval = setInterval(() => {
         currentPosition += step * 3;
         console.log(`in interval`);
+        servoCamera.to(currentPosition);
       }, intervalDelay);
     } else if (parseFloat(data.x) > -40 && parseFloat(data.x) < -31) {
       console.log(`-4`);
@@ -141,11 +149,13 @@ socket.on("cameraControls", (data) => {
       interval = setInterval(() => {
         currentPosition += step * 4;
         console.log(`in interval`);
+        servoCamera.to(currentPosition);
       }, intervalDelay);
     } else if (parseFloat(data.x) > -50 && parseFloat(data.x) < -41) {
       console.log(`-5`);
       currentPosition -= step * 5;
       console.log(`in interval`);
+      servoCamera.to(currentPosition);
     }
   }
 
