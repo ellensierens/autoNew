@@ -7,6 +7,8 @@ let motors;
 const invertPWM = true;
 let currentPosition = 90;
 let step = 0.2;
+let interval;
+let intervalDelay = 50;
 
 const scale = (num, in_min, in_max, out_min, out_max) => {
   return ((num - in_min) * (out_max - out_min)) / (in_max - in_min) + out_min;
@@ -59,12 +61,14 @@ board.on("ready", function () {
 });
 
 socket.on("stop", (data) => {
+  clearInterval(interval)
   // console.log(data);
   motors.forward(0);
   servo.to(90);
 });
 
 socket.on("cameraControls", (data) => {
+  clearInterval(interval)
   // console.log("camera controls");
   console.log(data);
 
@@ -77,32 +81,58 @@ socket.on("cameraControls", (data) => {
   if (0 < currentPosition < 180) {
     if (parseFloat(data.x) < 10 && parseFloat(data.x) > 0) {
       console.log(`+1`);
-
       currentPosition += step;
+      interval = setInterval(() => {
+        currentPosition += step;
+      }, intervalDelay);
     } else if (parseFloat(data.x) < 20 && parseFloat(data.x) > 11) {
       console.log(`+2`);
       currentPosition += step * 2;
+      interval = setInterval(() => {
+        currentPosition += step * 2;
+      }, intervalDelay);
     } else if (parseFloat(data.x) < 30 && parseFloat(data.x) > 21) {
       console.log(`+3`);
       currentPosition += step * 3;
+      interval = setInterval(() => {
+        currentPosition += step * 3;
+      }, intervalDelay);
     } else if (parseFloat(data.x) < 40 && parseFloat(data.x) > 31) {
       console.log(`+4`);
       currentPosition += step * 4;
+      interval = setInterval(() => {
+        currentPosition += step * 4;
+      }, intervalDelay);
     } else if (parseFloat(data.x) < 50 && parseFloat(data.x) > 41) {
       console.log(`+5`);
       currentPosition += step * 5;
+      interval = setInterval(() => {
+        currentPosition += step * 5;
+      }, intervalDelay);
     } else if (parseFloat(data.x) > -10 && parseFloat(data.x) < 0) {
       console.log(`-1`);
       currentPosition -= step * 1;
+      interval = setInterval(() => {
+        currentPosition += step;
+      }, intervalDelay);
     } else if (parseFloat(data.x) > -20 && parseFloat(data.x) < -11) {
       console.log(`-2`);
       currentPosition -= step * 2;
+      interval = setInterval(() => {
+        currentPosition += step * 2;
+      }, intervalDelay);
     } else if (parseFloat(data.x) > -30 && parseFloat(data.x) < -21) {
       console.log(`-3`);
       currentPosition -= step * 3;
+      interval = setInterval(() => {
+        currentPosition += step * 3;
+      }, intervalDelay);
     } else if (parseFloat(data.x) > -40 && parseFloat(data.x) < -31) {
       console.log(`-4`);
       currentPosition -= step * 4;
+      interval = setInterval(() => {
+        currentPosition += step * 4;
+      }, intervalDelay);
     } else if (parseFloat(data.x) > -50 && parseFloat(data.x) < -41) {
       console.log(`-5`);
       currentPosition -= step * 5;
