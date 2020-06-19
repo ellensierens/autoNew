@@ -123,7 +123,7 @@ socket.on("cameraControls", (data) => {
       console.log(`-1`);
       currentPosition -= step * 1;
       interval = setInterval(() => {
-        currentPosition += step;
+        currentPosition -= step;
         console.log(`in interval`);
         servoCamera.to(currentPosition);
       }, intervalDelay);
@@ -131,7 +131,7 @@ socket.on("cameraControls", (data) => {
       console.log(`-2`);
       currentPosition -= step * 2;
       interval = setInterval(() => {
-        currentPosition += step * 2;
+        currentPosition -= step * 2;
         console.log(`in interval`);
         servoCamera.to(currentPosition);
       }, intervalDelay);
@@ -139,7 +139,7 @@ socket.on("cameraControls", (data) => {
       console.log(`-3`);
       currentPosition -= step * 3;
       interval = setInterval(() => {
-        currentPosition += step * 3;
+        currentPosition -= step * 3;
         console.log(`in interval`);
         servoCamera.to(currentPosition);
       }, intervalDelay);
@@ -147,7 +147,7 @@ socket.on("cameraControls", (data) => {
       console.log(`-4`);
       currentPosition -= step * 4;
       interval = setInterval(() => {
-        currentPosition += step * 4;
+        currentPosition -= step * 4;
         console.log(`in interval`);
         servoCamera.to(currentPosition);
       }, intervalDelay);
