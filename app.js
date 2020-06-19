@@ -84,58 +84,68 @@ socket.on("cameraControls", (data) => {
       currentPosition += step;
       interval = setInterval(() => {
         currentPosition += step;
+        console.log(`in interval`);
       }, intervalDelay);
     } else if (parseFloat(data.x) < 20 && parseFloat(data.x) > 11) {
       console.log(`+2`);
       currentPosition += step * 2;
       interval = setInterval(() => {
         currentPosition += step * 2;
+        console.log(`in interval`);
       }, intervalDelay);
     } else if (parseFloat(data.x) < 30 && parseFloat(data.x) > 21) {
       console.log(`+3`);
       currentPosition += step * 3;
       interval = setInterval(() => {
         currentPosition += step * 3;
+        console.log(`in interval`);
       }, intervalDelay);
     } else if (parseFloat(data.x) < 40 && parseFloat(data.x) > 31) {
       console.log(`+4`);
       currentPosition += step * 4;
       interval = setInterval(() => {
         currentPosition += step * 4;
+        console.log(`in interval`);
       }, intervalDelay);
     } else if (parseFloat(data.x) < 50 && parseFloat(data.x) > 41) {
       console.log(`+5`);
       currentPosition += step * 5;
       interval = setInterval(() => {
         currentPosition += step * 5;
+        console.log(`in interval`);
       }, intervalDelay);
     } else if (parseFloat(data.x) > -10 && parseFloat(data.x) < 0) {
       console.log(`-1`);
       currentPosition -= step * 1;
       interval = setInterval(() => {
         currentPosition += step;
+        console.log(`in interval`);
       }, intervalDelay);
     } else if (parseFloat(data.x) > -20 && parseFloat(data.x) < -11) {
       console.log(`-2`);
       currentPosition -= step * 2;
       interval = setInterval(() => {
         currentPosition += step * 2;
+        console.log(`in interval`);
       }, intervalDelay);
     } else if (parseFloat(data.x) > -30 && parseFloat(data.x) < -21) {
       console.log(`-3`);
       currentPosition -= step * 3;
       interval = setInterval(() => {
         currentPosition += step * 3;
+        console.log(`in interval`);
       }, intervalDelay);
     } else if (parseFloat(data.x) > -40 && parseFloat(data.x) < -31) {
       console.log(`-4`);
       currentPosition -= step * 4;
       interval = setInterval(() => {
         currentPosition += step * 4;
+        console.log(`in interval`);
       }, intervalDelay);
     } else if (parseFloat(data.x) > -50 && parseFloat(data.x) < -41) {
       console.log(`-5`);
       currentPosition -= step * 5;
+      console.log(`in interval`);
     }
   }
 
