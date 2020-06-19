@@ -187,21 +187,27 @@ const between = (x, min, max) => {
 };
 
 socket.on("carControls", (data) => {
-  // console.log(data);
+  console.log(`new car controls event`);
 
+  // console.log(data);
+  //links en rechts
   if (data.x > 25) {
     servo.to(102);
+    console.log(`max left`);
   } else if (data.x < -25) {
     servo.to(78);
+    console.log(`max right`);
   } else {
     const scaledX = scale(data.x, -25, 25, 78, 102);
     console.log(scaledX);
     servo.to(scaledX);
   }
 
+  //forward
   if (data.y < 0) {
     if (data.y < -25) {
       motors.forward(255);
+      console.log(`max forward`);
     } else {
       // console.log(`value: ${data.y}`);
       const scaledY = scale(data.y, -25, 0, 255, 0);
@@ -210,9 +216,11 @@ socket.on("carControls", (data) => {
     }
   }
 
+  // reverse
   if (data.y > 0) {
     if (data.y > 25) {
       motors.reverse(255);
+      console.log(`max backward`);
     } else {
       // console.log(`value: ${data.y}`);
       const scaledY = scale(data.y, 0, 25, 0, 255);
